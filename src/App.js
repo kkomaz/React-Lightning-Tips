@@ -1,13 +1,12 @@
 import React from 'react';
-import { Button } from 'react-bootstrap'
+import { Container } from 'react-bootstrap';
+import ProfileCard from './components/ProfileCard'
 
 function App() {
   return (
-    <div className="App">
-      <Button>
-        Hello Tips
-      </Button>
-    </div>
+    <Container>
+      <ProfileCard />
+    </Container>
   );
 }
 
