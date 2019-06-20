@@ -32,7 +32,10 @@ code {
     monospace;
 }
 
+p, label {
+  font-size: 13px;
+}
 
-.container {
-
+.btn {
+  font-size: 14px !important;
 }

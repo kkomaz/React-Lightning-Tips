@@ -43,7 +43,9 @@ function ProfileCard() {
           </Card.Text>
 
           <Card.Text style={{ textAlign: 'center' }}>
-            Thank you! 🙏
+            <span role="img" aria-label="Lightning">
+              Thank you! 🙏
+            </span>
           </Card.Text>
 
           <Card.Text style={{ textAlign: 'center' }}>
@@ -51,7 +53,9 @@ function ProfileCard() {
           </Card.Text>
 
           <Card.Text style={{ textAlign: 'center' }}>
-            onchain ⛓ and lightning ⚡️
+            <span role="img" aria-label="Lightning">
+              onchain ⛓ and lightning ⚡️
+            </span>
           </Card.Text>
 
           <div style={{ display: 'flex', justifyContent: 'center' }}>
@@ -98,7 +102,9 @@ function ProfileCard() {
       </Card>
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
-          <Modal.Title>Tip Jar</Modal.Title>
+          <Modal.Title style={{ fontSize: '16px' }}>
+            Tip Jar
+          </Modal.Title>
         </Modal.Header>
           <Modal.Body>
             <TipForm />

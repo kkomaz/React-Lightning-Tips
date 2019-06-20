@@ -11,8 +11,6 @@ const openNodeKey = process.env.NODE_ENV === 'production' ?
 const openNodeCheckoutUrl = process.env.NODE_ENV === 'production' ?
   process.env.REACT_APP_OPEN_NODE_CHECKOUT_URL : process.env.REACT_APP_OPEN_NODE_CHECKOUT_URL_DEV
 
-
-
 function TipForm(props) {
   const handleSubmit = async (e, windowReference) => {
     e.preventDefault();
@@ -20,11 +18,12 @@ function TipForm(props) {
 
     const {
       formAmount,
+      formNote,
     } = e.currentTarget
 
     const params = {
       amount: formAmount.value,
-      description: 'Tip to Tech Rally',
+      description: formNote.value ? `${formNote.value} | Tip to TechRally` : 'Tip to TechRally',
       currency: 'USD'
     }
 
@@ -42,6 +41,7 @@ function TipForm(props) {
     }
 
     formAmount.value = ''
+    formNote.value = ''
   }
 
   const setWindowReference = (e) => {
@@ -51,9 +51,23 @@ function TipForm(props) {
 
   return (
     <Form onSubmit={e => setWindowReference(e)}>
+      <Form.Group controlId="formNote">
+        <Form.Label>Note (Limit: 150 Characters)</Form.Label>
+        <Form.Control
+          placeholder="Drop a note!"
+          as="textarea"
+          rows="4"
+          maxLength="150"
+          style={{
+            fontSize: '13px',
+          }}
+        />
+      <Form.Control.Feedback type="invalid">Drop a note!</Form.Control.Feedback>
+      </Form.Group>
       <Form.Group controlId="formAmount">
         <Form.Label>Tip Amount (in USD)</Form.Label>
         <Form.Control
+          style={{ width: '15em', fontSize: '13px' }}
           required
           type="number"
           placeholder="Enter Tip amount (USD)"
