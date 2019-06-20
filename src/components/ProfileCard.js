@@ -30,15 +30,23 @@ function ProfileCard() {
         <Card.Body style={{ color: 'white' }}>
           <Card.Title>Tech Rally</Card.Title>
           <Card.Text>
-            Welcome to the TechRally Tip page!
+            Welcome to the TechRally tip page!
           </Card.Text>
 
           <Card.Text>
-            Thank you for stopping by and I hope you've been enjoying the coding videos!
+            Creating content has always been a passion of mine and overwhelmed by the encouragement and support. 🙏
           </Card.Text>
 
           <Card.Text>
-            Your tip is much appreciated!
+            Tip is not required, but much appreciated!
+          </Card.Text>
+
+          <Card.Text style={{ textAlign: 'center' }}>
+            Currently accepting BTC only
+          </Card.Text>
+
+          <Card.Text style={{ textAlign: 'center' }}>
+            onchain ⛓ and lightning ⚡️
           </Card.Text>
 
           <div style={{ display: 'flex', justifyContent: 'center' }}>
