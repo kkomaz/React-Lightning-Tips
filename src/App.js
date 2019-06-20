@@ -4,7 +4,12 @@ import ProfileCard from './components/ProfileCard'
 
 function App() {
   return (
-    <Container>
+    <Container
+      style={{
+        display: 'flex',
+        justifyContent: 'center',
+      }}
+    >
       <ProfileCard />
     </Container>
   );
