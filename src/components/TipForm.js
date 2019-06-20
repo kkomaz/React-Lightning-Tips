@@ -11,8 +11,10 @@ const openNodeKey = process.env.NODE_ENV === 'production' ?
 const openNodeCheckoutUrl = process.env.NODE_ENV === 'production' ?
   process.env.REACT_APP_OPEN_NODE_CHECKOUT_URL : process.env.REACT_APP_OPEN_NODE_CHECKOUT_URL_DEV
 
+
+
 function TipForm(props) {
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e, windowReference) => {
     e.preventDefault();
     e.stopPropagation();
 
@@ -33,7 +35,7 @@ function TipForm(props) {
 
       if (result) {
         const charge = result.data.data
-        window.open(`${openNodeCheckoutUrl}/${charge.id}`)
+        windowReference.location = `${openNodeCheckoutUrl}/${charge.id}`
       }
     } catch (e) {
       alert(e.message)
@@ -42,8 +44,13 @@ function TipForm(props) {
     formAmount.value = ''
   }
 
+  const setWindowReference = (e) => {
+    const windowReference = window.open();
+    handleSubmit(e, windowReference)
+  }
+
   return (
-    <Form onSubmit={e => handleSubmit(e)}>
+    <Form onSubmit={e => setWindowReference(e)}>
       <Form.Group controlId="formAmount">
         <Form.Label>Tip Amount (in USD)</Form.Label>
         <Form.Control
