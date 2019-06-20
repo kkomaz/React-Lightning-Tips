@@ -4,6 +4,7 @@ import {
   Button,
   Modal,
 } from 'react-bootstrap'
+import TipForm from './TipForm'
 import techrally from '../assets/techrally.png'
 
 function ProfileCard() {
@@ -52,7 +53,7 @@ function ProfileCard() {
           <Modal.Title>Tip Jar</Modal.Title>
         </Modal.Header>
           <Modal.Body>
-            Tip Form
+            <TipForm />
           </Modal.Body>
           <Modal.Footer>
             <Button variant="secondary" onClick={handleClose}>
