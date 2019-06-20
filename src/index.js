@@ -4,6 +4,14 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import axios from 'axios';
+import keys from './config/keys'
+
+const setAxiosHeaders = () => {
+  axios.defaults.baseURL = keys.openNodeUrl
+}
+
+setAxiosHeaders()
 
 ReactDOM.render(<App />, document.getElementById('root'));
 
