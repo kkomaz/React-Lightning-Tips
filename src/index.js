@@ -5,10 +5,12 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import axios from 'axios';
-import keys from './config/keys'
+
+const openNodeUrl = process.env.NODE_ENV === 'production' ?
+  process.env.REACT_APP_OPEN_NODE_URL : process.env.REACT_APP_OPEN_NODE_URL_DEV
 
 const setAxiosHeaders = () => {
-  axios.defaults.baseURL = keys.openNodeUrl
+  axios.defaults.baseURL = openNodeUrl
 }
 
 setAxiosHeaders()

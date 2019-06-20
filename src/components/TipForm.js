@@ -4,7 +4,12 @@ import {
   Form,
 } from 'react-bootstrap'
 import axios from 'axios'
-import keys from '../config/keys'
+
+const openNodeKey = process.env.NODE_ENV === 'production' ?
+  process.env.REACT_APP_OPEN_NODE_KEY : process.env.REACT_APP_OPEN_NODE_KEY_DEV
+
+const openNodeCheckoutUrl = process.env.NODE_ENV === 'production' ?
+  process.env.REACT_APP_OPEN_NODE_CHECKOUT_URL : process.env.REACT_APP_OPEN_NODE_CHECKOUT_URL_DEV
 
 function TipForm(props) {
   const handleSubmit = async (e) => {
@@ -23,12 +28,12 @@ function TipForm(props) {
 
     try {
       const result = await axios.post(`/charges`, params, {
-        headers: { Authorization: keys.openNodeKey }
+        headers: { Authorization: openNodeKey }
       })
 
       if (result) {
         const charge = result.data.data
-        window.open(`${keys.openNodeCheckoutUrl}/${charge.id}`)
+        window.open(`${openNodeCheckoutUrl}/${charge.id}`)
       }
     } catch (e) {
       alert(e.message)
