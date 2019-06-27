@@ -31,7 +31,7 @@ function ProfileCard() {
         <Card.Body style={{ color: 'white' }}>
           <Card.Title>Tech Rally</Card.Title>
           <Card.Text>
-            Welcome to the TechRally tip page!
+            Welcome to the Tech Rally tip page!
           </Card.Text>
 
           <Card.Text>
